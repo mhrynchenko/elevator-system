@@ -1,0 +1,22 @@
+.elevator-car {
+    width: 150px;
+    height: 200px;
+    background-color: grey;
+}
+
+.dial {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 5px 5px 5px;
+    background-color: black;
+    color: orange;
+    font-size: 12px;
+}
+
+.remove {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+}
