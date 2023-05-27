@@ -12,6 +12,8 @@ The core package contains the essential components and logic of the elevator sys
 ### ui
 The ui package builds upon the core package and incorporates React to provide a user interface. It allows users to interact with the elevator system, visualize the elevator status, and make requests for specific floors.
 
+**For more details, please read:** [ui README](./packages/ui/README.md)
+
 ## Start
 
 To run the project, please follow these steps (from the root of repo):
