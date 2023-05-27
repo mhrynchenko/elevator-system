@@ -1,24 +1,24 @@
 import { useState, useCallback } from 'react';
 
 type UseElevatorCarProps = {
-    id: number;
-    handleRemove: (id: number) => void;
+  id: number;
+  handleRemove: (id: number) => void;
 };
 
 export const useElevatorCar = ({ id, handleRemove }: UseElevatorCarProps) => {
-    const [isShowRemove, setIsShowRemove] = useState(false);
+  const [isShowRemove, setIsShowRemove] = useState(false);
 
-    const handleChangeVisability = useCallback(() => {
-        setIsShowRemove(!isShowRemove);
-    }, [isShowRemove, setIsShowRemove]);
+  const handleChangeVisability = useCallback(() => {
+    setIsShowRemove(!isShowRemove);
+  }, [isShowRemove, setIsShowRemove]);
 
-    const handleItemRemove = useCallback(() => {
-        handleRemove(id);
-    }, [handleRemove, id]);
+  const handleItemRemove = useCallback(() => {
+    handleRemove(id);
+  }, [handleRemove, id]);
 
-    return {
-        isShowRemove,
-        handleChangeVisability,
-        handleItemRemove,
-    };
+  return {
+    isShowRemove,
+    handleChangeVisability,
+    handleItemRemove,
+  };
 };

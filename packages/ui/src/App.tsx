@@ -1,6 +1,7 @@
 import { Button, Form, Alert } from 'react-bootstrap';
 import { MemoElevatorCar } from './components';
 import { useElevatorSystem } from './useElevatorSystem';
+import { SyntheticEvent } from 'react';
 
 import './styles.css';
 
@@ -39,11 +40,16 @@ function App() {
                 type="number"
                 min="10"
                 placeholder="10"
-                onChange={(e) => setFloors(parseInt(e.target.value))}
+                onChange={(e: SyntheticEvent) => {
+                  setFloors(parseInt((e.target as HTMLInputElement).value));
+                }}
               />
             </Form.Group>
           ) : (
-            <p>Building is {building.floors} floor(s) height, with {building.elevators.length} elevator cars.</p>
+            <p>
+              Building is {building.floors} floor(s) height, with{' '}
+              {building.elevators.length} elevator cars.
+            </p>
           )}
 
           {building.floors && !isRandomMode && (
@@ -80,13 +86,14 @@ function App() {
                 min="1"
                 max={maxFloor}
                 placeholder="1"
-                onChange={(e) => setCurrentFloor(parseInt(e.target.value))}
+                onChange={(e: SyntheticEvent) => {
+                  setCurrentFloor(
+                    parseInt((e.target as HTMLInputElement).value),
+                  );
+                }}
               />
 
-              <Form.Label
-                htmlFor="targetFloor"
-                className="mt-3"
-              >
+              <Form.Label htmlFor="targetFloor" className="mt-3">
                 Target Floor
               </Form.Label>
               <Form.Control
@@ -95,7 +102,11 @@ function App() {
                 min="1"
                 max={maxFloor}
                 placeholder="10"
-                onChange={(e) => setTargetFloor(parseInt(e.target.value))}
+                onChange={(e: SyntheticEvent) => {
+                  setTargetFloor(
+                    parseInt((e.target as HTMLInputElement).value),
+                  );
+                }}
               />
             </Form.Group>
 
@@ -112,11 +123,13 @@ function App() {
         <Form className="mt-3">
           <h3>Randomizer</h3>
           <p>
-            The Randomizer will create requests for the trip during a specified amount of time.
-            On each tick it creates a random amount of requests between 5 and 10. <b>Tick equals 5000 MS</b>.
+            The Randomizer will create requests for the trip during a specified
+            amount of time. On each tick it creates a random amount of requests
+            between 5 and 10. <b>Tick equals 5000 MS</b>.
           </p>
           <Alert variant="warning">
-            Please note that <b>after the execution time ends</b>, some elevator cars may <b>still be in motion</b>.
+            Please note that <b>after the execution time ends</b>, some elevator
+            cars may <b>still be in motion</b>.
           </Alert>
           <Form.Group>
             <Form.Label htmlFor="executionTime">
@@ -128,7 +141,11 @@ function App() {
               step="5000"
               min="5000"
               placeholder="10000"
-              onChange={(e) => setExecutionTime(parseInt(e.target.value))}
+              onChange={(e: SyntheticEvent) => {
+                setExecutionTime(
+                  parseInt((e.target as HTMLInputElement).value),
+                );
+              }}
             />
           </Form.Group>
           <Button
@@ -142,14 +159,16 @@ function App() {
         </Form>
       </div>
       <div className="elevators-container">
-        {building.elevators.map(({ elevatorId, elevatorCurrentFloor, elevatorState }) =>
-          <MemoElevatorCar
-            key={elevatorId}
-            id={elevatorId}
-            floor={elevatorCurrentFloor}
-            state={elevatorState}
-            handleRemove={handleRemoveElevatorCar}
-          />
+        {building.elevators.map(
+          ({ elevatorId, elevatorCurrentFloor, elevatorState }) => (
+            <MemoElevatorCar
+              key={elevatorId}
+              id={elevatorId}
+              floor={elevatorCurrentFloor}
+              state={elevatorState}
+              handleRemove={handleRemoveElevatorCar}
+            />
+          ),
         )}
       </div>
     </div>
