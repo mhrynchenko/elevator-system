@@ -6,7 +6,7 @@ For instructions, please refer to the [main README](../../README.md).
 
 ## Config
 
-You have the option to control certain aspects of the system's default behavior by modifying the variables in the .env file.
+You have the option to control certain aspects of the system's default behavior by modifying the variables in the `.env` file.
 
 1. **REACT_APP_FLOOR**: This variable determines the default floor where the elevator will be initially created.
 2. **REACT_APP_SPEED**: This variable controls the speed of the elevator, measured in milliseconds per floor.
