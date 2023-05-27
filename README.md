@@ -32,4 +32,4 @@ npm run build -w packages/core
 npm run start -w packages/ui  
 ```
 
-[Open site](http://localhost:3000/)
+4. Open web page: [http://localhost:3000/](http://localhost:3000/)

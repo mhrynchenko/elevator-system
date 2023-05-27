@@ -3,7 +3,7 @@
 ## Alghoritm
 The Elevator System implements the `Destination Dispatch` algorithm, which enables users to specify their desired floor when requesting an elevator. 
 
-This impementation of algorithm `prioritizes optimizing system throughput and energy efficiency`, while considering travel time and waiting time for users.
+This impementation of algorithm `prioritizes optimizing system throughput and energy efficiency` over travel time and waiting time for users.
 
 The metrics for optimizing the elevator system are prioritized in the following order:
 
