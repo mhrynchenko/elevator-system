@@ -1,4 +1,4 @@
-# Elevator Systerm
+# Elevator System
 
 ## Overview
 
